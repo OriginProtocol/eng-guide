@@ -6,7 +6,7 @@ description: Development practices at Origin Protocol
 
 ## **Prioritisation**
 
-Prioritization is the most important thing we do when building products and it is important that we are always trying to work on the tasks that will have the most impact. This is more difficult when products are not yet accepting public users or a product has not found product market fit so extra attention should be paid in those situations.
+Prioritization is the most important thing we do when building products and it is important that we are always trying to work on the tasks that will have the most impact. This is more difficult when products are not yet accepting public users or a product has not found product-market fit so extra attention should be paid in those situations.
 
 In general, prioritization should be mostly managed by PMs. Engineers should be free to implement without needing to think about priority because that is how they are most productive. Engineers are free to move between tasks or provide guidance to PMs if they believe some prioritization is not as effective as it could be.
 
@@ -32,7 +32,7 @@ Keep in mind that comments that have become outdated or comments that are otherw
 
 ### Testing
 
-Tests can be useful in the right context, but we don't require all new code to be accompanied by a full set of tests. Tests are more code, and all code incurs a cost \(whether it be technical debt or or maintenance costs\).
+Tests can be useful in the right context, but we don't require all new code to be accompanied by a full set of tests. Tests are more code, and all code incurs a cost \(whether it be technical debt or maintenance costs\).
 
 Whether or not to write tests is up to the individual engineer, but here are some rules of thumb:
 
@@ -44,22 +44,22 @@ Whether or not to write tests is up to the individual engineer, but here are som
 
 > Show me your flowcharts and conceal your tables, and I shall continue to be mystified. Show me your tables, and I won’t usually need your flowcharts; they’ll be obvious. -- Fred Brooks
 
-Great care should be taken in the data design when changing an existing project or spinning up new projects. It is the most difficult part of a software system to change, and most projects that mature even slightly will end up with multiple applications interacting with the data schema. Further, our engineers move between products and the data design is a critical piece in gaining understanding of a new codebase.
+Great care should be taken in the data design when changing an existing project or spinning up new projects. It is the most difficult part of a software system to change, and most projects that mature even slightly will end up with multiple applications interacting with the data schema. Further, our engineers move between products and the data design is a critical piece in gaining an understanding of a new codebase.
 
 ### Databases
 
-We prefer PostgreSQL everywhere. Although SQLite can be handy for quick prototyping, it should never be used as a replacement for PostgreSQL in development or testing due to it not being a fully featured SQL compliant database, and because it can behave differently to PostgreSQL in certain situations.
+We prefer PostgreSQL everywhere. Although SQLite can be handy for quick prototyping, it should never be used as a replacement for PostgreSQL in development or testing due to it not being a fully-featured SQL compliant database, and because it can behave differently to PostgreSQL in certain situations.
 
 Database schemas should always be fully source controlled. Any changes should be done via a migration and committed \(yes, even the creation of indexes\). Some additional rules of thumb for dealing with databases:
 
 * Every table has an autoincrement column named `id` 
 * Every table has audit columns `created_at` and `updated_at`
-* Table names, column names, constraints and indexes only ever use lowercase and snake case. Snake case is faster to read than camel case and it plays nicely with command line tools like `psql`
+* Table names, column names, constraints and indexes only ever use lowercase and snake case. Snake case is faster to read than camel case and it plays nicely with command-line tools like `psql`
 * Avoid JSON or JSONB column types. If one of these types is being used the structure should be fully documented in comments.
 
 ### Things that aren't databases
 
-As a blockchain company, we are often building products that have no centralized component like a PostgreSQL database. In the case of large JSON structures the format should be well documented in comments.
+As a blockchain company, we are often building products that have no centralized component like a PostgreSQL database. In the case of large JSON structures, the format should be well documented in comments.
 
 ### Example data
 
